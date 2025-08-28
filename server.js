@@ -12,6 +12,9 @@ app.get("/", (req, res) => {
 app.use('/data', apps);
 
 
-app.listen(3001, () => {
-    console.log(`✅ Server started on http://localhost`);
-}); 
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
