@@ -38,6 +38,7 @@ export const postGetLyircs = async (req, res) => {
             return res.status(404).json({ error: "Song not found on Genius" });
         }
         const html = await pageRes.text();
+        console.log("hello", html.substring(0, 500));
         const $ = cheerio.load(html);
         const lyricsArr = $('[data-lyrics-container="true"]').map((i, el) => $(el).text().trim()).get();
         const lyric = lyricsArr.length > 0 ? lyricsArr.join("\n") : "";
